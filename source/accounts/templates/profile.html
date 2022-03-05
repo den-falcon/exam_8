@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Пользователь{% endblock %}
+{% block links %}
+    {% if user.is_authenticated %}
+        {% if perms.tracker_app.add_project.add_product %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'tracker_app:project-create' %}">Создать проэкт</a>
+            </li>
+        {% endif %}
+        {% if request.user != user_obj %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page"
+                   href="{% url 'accounts:profile' request.user.pk %}">Профиль</a>
+            </li>
+        {% endif %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:logout' %}">Выход</a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:login' %}">Вход</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:registration' %}">Регистрация</a>
+        </li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="mt-5">
+            <h1>Личная страница пользователя: {{ user_obj.get_full_name|default:user_obj.username }}</h1>
+            <p>Имя пользователя: {{ user_obj.username }}</p>
+            <p>Имя: {{ user_obj.first_name }}</p>
+            <p>Фамилия: {{ user_obj.last_name }}</p>
+            <p>Почта: {{ user_obj.email }}</p>
+            {% if request.user == user_obj %}
+                <br>
+                <a class="btn btn-info" href="{% url 'accounts:account-change' %}">Редактировать профиль</a>
+                <a class="btn btn-info" href="{% url 'accounts:password-change' %}">Сменить пароль</a>
+                <br>
+            {% endif %}
+            <h3 class="mt-4 mb-0 fw-bold fs-2">Отзывы пользователя</h3>
+            <hr class="text-danger mt-1">
+            <div class="row justify-content-start">
+                {% block card %}
+                    {% for obj in reviews %}
+                        <div class="col-12 mb-4">
+                            <div class="card h-100 ">
+                                <div class="d-flex card-header bg-info text-light">
+                                    <span class="flex-grow-1"><a class="text-light"
+                                                                 href="{% url 'accounts:profile' obj.author_id %}">{{ obj.author }}</a></span>
+                                    {% if perms.magazine_app.change_product %}
+                                        <a class="text-light" href="{% url 'otzovikapp:product-update' obj.pk %}"><i
+                                                class="fs-4 ms-2 fas fa-edit"></i></a>
+                                    {% endif %}
+                                    {% if perms.magazine_app.delete_products %}
+                                        <a class="text-light" href="{% url 'otzovikapp:product-delete' obj.pk %}"><i
+                                                class="fs-4 ms-2 fas fa-trash-alt"></i></a>
+                                    {% endif %}
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{ obj.text }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endblock %}
+            </div>
+        </div>
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+

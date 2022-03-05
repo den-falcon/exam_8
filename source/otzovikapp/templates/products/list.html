@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block simple_search %}
+    <div class="d-flex justify-content-end">
+        {% include 'partial/simple_search.html' %}
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="mt-5">
+        <h3 class="mt-4 mb-0 fw-bold fs-2">Товары</h3>
+        <hr class="text-danger mt-1">
+          <div class="row justify-content-start" style="max-width: 40rem;">
+              {% for product in object_list %}
+                {% include 'partial/product_card.html' with url='otzovikapp:product-read' pk=product.pk name=product.name description=product.description %}
+              {% endfor %}
+          </div>
+        </div>
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}

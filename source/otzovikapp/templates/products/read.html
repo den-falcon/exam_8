@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1>{{ product.name }}</h1>
+        {% if product.img %}
+            <img class="avatar" src="{{ product.img.url }}" width="250" height="250" alt="user picture">
+        {% else %}
+            <img class="avatar" src="{% static 'no_foto.png' %}" width="250" height="250" alt="user picture">
+        {% endif %}
+        <h3>Описание:</h3>
+        <p>{{ product.description }}</p>
+        <p>Категория: {{ product.category }}</p>
+        <p>Средняя оценка: {{ avg.avg }}</p>
+        <p><a href="{% url "otzovikapp:review-create" product.pk %}" class="btn btn-info">Добавить отзыв</a></p>
+        <h3 class="mt-4 mb-0 fw-bold fs-2">Отзывы</h3>
+        <hr class="text-danger mt-1">
+        <div class="row justify-content-start">
+            {% block card %}
+                {% for obj in reviews %}
+                    <div class="col-12 mb-4">
+                        <div class="card h-100 ">
+                            <div class="d-flex card-header bg-info text-light">
+                                    <span class="flex-grow-1"><a class="text-light"
+                                                                 href="{% url 'accounts:profile' obj.author_id %}">{{ obj.author }} | {{ obj.author.email }}</a></span>
+                                {% if perms.magazine_app.change_product %}
+                                    <a class="text-light" href="{% url 'otzovikapp:product-update' obj.pk %}"><i
+                                            class="fs-4 ms-2 fas fa-edit"></i></a>
+                                {% endif %}
+                                {% if perms.magazine_app.delete_products %}
+                                    <a class="text-light" href="{% url 'otzovikapp:product-delete' obj.pk %}"><i
+                                            class="fs-4 ms-2 fas fa-trash-alt"></i></a>
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <p class="fw-bold">Оценка: {{ obj.rating }}</p>
+                                <p class="card-text"><span class="fw-bold">Комментарий: </span>{{ obj.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

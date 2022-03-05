@@ -1,0 +1,233 @@
+[
+{
+    "model": "otzovikapp.category",
+    "pk": 1,
+    "fields": {
+        "name": "Категория 1",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 2,
+    "fields": {
+        "name": "Категория  2",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 3,
+    "fields": {
+        "name": "Категория 3",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 4,
+    "fields": {
+        "name": "Категория 4",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 5,
+    "fields": {
+        "name": "Категория 5",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 6,
+    "fields": {
+        "name": "Категория 6",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 7,
+    "fields": {
+        "name": "Категория 7",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 8,
+    "fields": {
+        "name": "Категория 8",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.category",
+    "pk": 9,
+    "fields": {
+        "name": "Категория 9",
+        "description": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 1,
+    "fields": {
+        "name": "Товар 1",
+        "category": 1,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 2,
+    "fields": {
+        "name": "Товар 2",
+        "category": 2,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 3,
+    "fields": {
+        "name": "Товар 3",
+        "category": 1,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 4,
+    "fields": {
+        "name": "Товар 4",
+        "category": 3,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 5,
+    "fields": {
+        "name": "Товар 5",
+        "category": 4,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 6,
+    "fields": {
+        "name": "Товар 6",
+        "category": 5,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 7,
+    "fields": {
+        "name": "Товар 7",
+        "category": 6,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 8,
+    "fields": {
+        "name": "Товар 8",
+        "category": 7,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 9,
+    "fields": {
+        "name": "Товар 9",
+        "category": 1,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 10,
+    "fields": {
+        "name": "Товар 10",
+        "category": 9,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 11,
+    "fields": {
+        "name": "Товар 11",
+        "category": 2,
+        "description": "Какое то описание товара",
+        "img": ""
+    }
+},
+{
+    "model": "otzovikapp.product",
+    "pk": 14,
+    "fields": {
+        "name": "asdasdasd",
+        "category": 1,
+        "description": "asdfsadfsadf",
+        "img": "product_img/gtr.jpg"
+    }
+},
+{
+    "model": "otzovikapp.review",
+    "pk": 1,
+    "fields": {
+        "author": 1,
+        "product": 1,
+        "text": "Содержательный отзыв о качестве товара",
+        "rating": 5,
+        "is_moderated": true,
+        "created_at": "2022-03-05T08:06:33.430Z",
+        "updated_at": "2022-03-05T08:06:48.503Z"
+    }
+},
+{
+    "model": "otzovikapp.review",
+    "pk": 2,
+    "fields": {
+        "author": 1,
+        "product": 14,
+        "text": "dsfdsfsdf",
+        "rating": 5,
+        "is_moderated": false,
+        "created_at": "2022-03-07T08:24:59.311Z",
+        "updated_at": "2022-03-07T08:24:59.311Z"
+    }
+},
+{
+    "model": "otzovikapp.review",
+    "pk": 3,
+    "fields": {
+        "author": 1,
+        "product": 14,
+        "text": "dsfsdfsdf",
+        "rating": 2,
+        "is_moderated": false,
+        "created_at": "2022-03-07T09:10:38.699Z",
+        "updated_at": "2022-03-07T09:10:38.699Z"
+    }
+}
+]

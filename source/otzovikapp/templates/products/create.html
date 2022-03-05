@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Create Product{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Новый товар</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% include "partial/form.html" with button_text="Создать" %}
+        </form>
+        <br>
+        <a href="{% url "otzovikapp:index" %}" class="btn btn-danger">На главную</a>
+    </div>
+{% endblock %}

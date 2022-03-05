@@ -1,0 +1,19 @@
+<div class="col-12 mb-4">
+    <div class="card h-100 ">
+        <div class="d-flex card-header bg-info text-light">
+            <span class="flex-grow-1"><a class="text-light"
+                                         href="{% url url pk %}">{{ name }}</a></span>
+            {% if perms.magazine_app.change_product %}
+                <a class="text-light" href="{% url 'otzovikapp:product-update' pk %}"><i
+                        class="fs-4 ms-2 fas fa-edit"></i></a>
+            {% endif %}
+            {% if perms.magazine_app.delete_products %}
+                <a class="text-light" href="{% url 'otzovikapp:product-delete' pk %}"><i
+                        class="fs-4 ms-2 fas fa-trash-alt"></i></a>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ description }}</p>
+        </div>
+    </div>
+</div>

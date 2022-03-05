@@ -86,20 +86,20 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 
 # Internationalization
@@ -113,10 +113,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-# LOGOUT_REDIRECT_URL = "otzovikapp:projects-view"
-# LOGIN_REDIRECT_URL = "otzovikapp:projects-view"
-#
-# LOGIN_URL = 'accounts:login'
+LOGOUT_REDIRECT_URL = "otzovikapp:index"
+LOGIN_REDIRECT_URL = "otzovikapp:index"
+
+LOGIN_URL = 'accounts:login'
 
 
 # Static files (CSS, JavaScript, Images)
